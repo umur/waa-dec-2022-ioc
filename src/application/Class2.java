@@ -6,10 +6,10 @@ import framework.MyBean;
 @MyBean
 public class Class2 {
     @MyAutoWired
-    public Class1 c1;
+    private Class1 c1;
 
     @MyAutoWired
-    public Class3 c3;
+    private Class3 c3;
     public void print(){
         c1.print();
         System.out.println("Hello from Class2");

@@ -34,6 +34,8 @@ public class MyInjector {
             for(Field field : fields){
                 MyAutoWired annotation = field.getAnnotation(MyAutoWired.class);
                 if(annotation != null){
+                    if(!field.canAccess(obj))
+                        field.setAccessible(true);
                     Class csType = field.getType();
                     field.set(obj, MyMap.get(csType));
                 }
