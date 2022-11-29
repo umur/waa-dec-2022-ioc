@@ -8,9 +8,12 @@ public class IocApplication {
     public static void main(String[] args) {
         var injector = new MyInjector();
         try {
-            injector.getBean(ClassA.class).toString();
-            injector.getBean(ClassB.class).toString();
-            injector.getBean(ClassC.class).toString();
+            var instanceOfA = injector.getBean(ClassA.class);
+            var instanceOfB = injector.getBean(ClassB.class);
+            var instanceOfC = injector.getBean(ClassC.class);
+            System.out.println(instanceOfA.toString());
+            System.out.println(instanceOfB.toString());
+            System.out.println(instanceOfC.toString());
         } catch (BeanNotFoundException e) {
             throw new RuntimeException(e);
         }
