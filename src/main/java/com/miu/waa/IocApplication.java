@@ -16,7 +16,7 @@ public class IocApplication implements CommandLineRunner {
 		MyInjector injector = new MyInjector();
 		String curPackageName = injector.getClass().getPackageName();
 		injector.createObjects(curPackageName);
-		ClassA bean = (ClassA) injector.getBean(Class.forName("com.miu.ea.ClassA"));
+		ClassA bean = (ClassA) injector.getBean(Class.forName("com.miu.waa.ClassA"));
 		bean.print();
 	}
 }
