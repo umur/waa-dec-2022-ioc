@@ -22,7 +22,8 @@ public class MyInjector {
 
     public void fillMyBeanInstances() {
         for (var bean : myBeans) {
-            addBeanInstance(bean);
+//            addBeanInstance(bean);
+            checkMyBeansAndCreateInstance(bean);
         }
     }
 
