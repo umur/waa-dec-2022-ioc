@@ -7,10 +7,10 @@ In this lab you will develop an IoC framework. Your framework cannot have Spring
 ###  Requirements
 ---
 * Create '@MyBean' annotation only for classes.
-* Create '@MyAutowired' annotation only for fields.
+* Create '@MyAutoWired' annotation only for fields.
 * Create the Injector Class 'MyInjector' to search for annotations and create objects.
 	* Scan all classes under the current package.
-	* Create an instance for every class that has '@MyAutowired' annotation.
+	* Create an instance for every class that has '@MyAutoWired' annotation.
 * Create a map to hold the instances of classes.
 * Create a 'getBean(Class clazz)' method that returns the object of the class from the Map. Throw a BeanNotFoundException if there is no object of the class in the Map. (You need to create the exception.)
 	
