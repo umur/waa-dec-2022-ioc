@@ -26,20 +26,33 @@ public class MyInjector {
         }
     }
 
+    public void getFields(Object mainObj, Class clazz) throws IllegalAccessException {
+        Object obj = MyMap.get(clazz);
+        List<Field> fields = Arrays.stream(clazz.getDeclaredFields()).toList();
+
+        if(fields.stream().count() <= 0)
+            return;
+
+        for(Field field : fields){
+            MyAutoWired annotation = field.getAnnotation(MyAutoWired.class);
+            if(annotation != null){
+                if(!field.canAccess(obj))
+                    field.setAccessible(true);
+                Class csType = field.getType();
+                field.set(obj, MyMap.get(csType));
+
+                //break circular dependency
+                if(mainObj.getClass() != csType)
+                    getFields(mainObj, csType);
+            }
+        }
+    }
+
     public Object getBean(Class clazz) throws BeanNotFoundException, IllegalAccessException {
         if(MyMap.containsKey(clazz)){
             Object obj = MyMap.get(clazz);
-            List<Field> fields = Arrays.stream(obj.getClass().getDeclaredFields()).toList();
 
-            for(Field field : fields){
-                MyAutoWired annotation = field.getAnnotation(MyAutoWired.class);
-                if(annotation != null){
-                    if(!field.canAccess(obj))
-                        field.setAccessible(true);
-                    Class csType = field.getType();
-                    field.set(obj, MyMap.get(csType));
-                }
-            }
+            getFields(obj, clazz);
 
             return obj;
         } else {
