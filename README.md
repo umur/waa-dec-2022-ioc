@@ -2,17 +2,17 @@
 
 # Lab 1 - Inversion of Control
 
-In this lab you will develop an IoC framework. Your framework cannot have Spring libraries.
+In this lab you will develop an IoC myFramework. Your myFramework cannot have Spring libraries.
 
 ###  Requirements
 ---
-* Create '@MyBean' annotation only for classes.
-* Create '@MyAutoWired' annotation only for fields.
-* Create the Injector Class 'MyInjector' to search for annotations and create objects.
+* Create '@myFramework.MyBean' annotation only for classes.
+* Create '@myFramework.MyAutoWired' annotation only for fields.
+* Create the Injector Class 'myFramework.MyInjector' to search for annotations and create objects.
 	* Scan all classes under the current package.
-	* Create an instance for every class that has '@MyAutoWired' annotation.
+	* Create an instance for every class that has '@myFramework.MyAutoWired' annotation.
 * Create a map to hold the instances of classes.
-* Create a 'getBean(Class clazz)' method that returns the object of the class from the Map. Throw a BeanNotFoundException if there is no object of the class in the Map. (You need to create the exception.)
+* Create a 'getBean(Class clazz)' method that returns the object of the class from the Map. Throw a myFramework.BeanNotFoundException if there is no object of the class in the Map. (You need to create the exception.)
 	
 
 ## Submission

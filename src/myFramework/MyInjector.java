@@ -1,3 +1,5 @@
+package myFramework;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -8,13 +10,17 @@ import java.util.stream.Collectors;
 public class MyInjector {
     Map<Class,Object> MyMap = new IdentityHashMap<>();
     public void CreateContainer(String packageName){
+        System.out.println("====" + packageName);
         Set<Class> classList = findClasses(packageName);
-        for(Class c : classList){
+        System.out.println("====" + classList);
+
+        for(Class cls : classList){
             try {
-                Object annotation = c.getAnnotation(MyBean.class);
+                Object annotation = cls.getAnnotation(MyBean.class);
+                System.out.println("====" + annotation);
                 if(annotation != null){
-                    Object obj = c.getDeclaredConstructor().newInstance();
-                    MyMap.put(c, obj);
+                    Object obj = cls.getDeclaredConstructor().newInstance();
+                    MyMap.put(cls, obj);
                 }
             } catch(Exception e) {
 
