@@ -39,8 +39,7 @@ public class MyInjector {
 
             }
 
-
-//            MyHashMap.put(c.getSimpleName(), obj);
+             // MyHashMap.put(c.getSimpleName(), obj);
             //java.lang.reflect.Constructor.newInstance();
         }
 

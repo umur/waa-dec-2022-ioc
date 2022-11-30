@@ -2,15 +2,15 @@
 @MyBean
 public class ConsumerClass {
     @MyAutowired
-    private ApplicationLevelClass ac;
+    private ApplicationLevelClass applicationLevelClass;
 
 //    public ConsumerClass(ApplicationLevelClass ac){
-//        this.ac = ac;
+//        this.applicationLevelClass = applicationLevelClass;
 //    }
 
     public void print(){
         //ac.print();
         System.out.println("Hello Gilbert from ConsumerClass!");
-        ac.print();
+        applicationLevelClass.print();
     }
 }
