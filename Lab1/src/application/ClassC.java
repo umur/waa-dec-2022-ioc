@@ -12,7 +12,7 @@ public class ClassC {
     private ClassB b;
     public void message(){
         a.message();
-        System.out.println("Hello from Class2");
+        System.out.println("Hello from ClassB");
         b.message();
     }
 }
