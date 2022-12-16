@@ -4,9 +4,8 @@ import src.annotation.MyAutoWired;
 import src.annotation.MyBeans;
 
 @MyBeans
-public class Products {
+public class Reviews {
 
     @MyAutoWired
-    private Reviews reviews;
-
+    private Products products;
 }
